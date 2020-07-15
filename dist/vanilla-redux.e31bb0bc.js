@@ -885,7 +885,8 @@ var toggleSwitch = function toggleSwitch() {
 
 var increase = function increase(difference) {
   return {
-    type: INCREASE
+    type: INCREASE,
+    difference: difference
   };
 };
 
@@ -960,6 +961,20 @@ render();
 // !! 리액트 프로젝트에서는 직접 사용하지 않음, 컴포넌트에서 리덕스 상태를 조회하는 과정에서 react-redux라는 라이브러리가 대신 해준다.
 
 store.subscribe(render);
+/* 액션 발생시키기 */
+// 디스패치, DOM 요소를 클릭할 때 dispatch 함수를 사용하여 액션을 스토어에게 전달
+
+divToggle.onclick = function () {
+  store.dispatch(toggleSwitch());
+};
+
+btnIncrease.onclick = function () {
+  store.dispatch(increase(1)); // 1씩 증가
+};
+
+btnDecrease.onclick = function () {
+  store.dispatch(decrease());
+};
 },{"redux":"node_modules/redux/es/redux.js"}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -988,7 +1003,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59221" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57713" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

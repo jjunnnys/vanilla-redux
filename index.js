@@ -14,7 +14,7 @@ const DECREASE = 'DECREASE';
 
 // 액션 생성함수 정의
 const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
-const increase = (difference) => ({ type: INCREASE });
+const increase = (difference) => ({ type: INCREASE, difference });
 const decrease = () => ({ type: DECREASE });
 
 /* 초기 값 설정 */
@@ -78,3 +78,16 @@ render();
 // subscribe 함수의 파라미터로는 함수 형태의 값을 전달해 준다. -> 전달된 함수는 추후 액션이 발생하여 상태가 업데이트될 때마다 호출
 // !! 리액트 프로젝트에서는 직접 사용하지 않음, 컴포넌트에서 리덕스 상태를 조회하는 과정에서 react-redux라는 라이브러리가 대신 해준다.
 store.subscribe(render);
+
+/* 액션 발생시키기 */
+
+// 디스패치, DOM 요소를 클릭할 때 dispatch 함수를 사용하여 액션을 스토어에게 전달
+divToggle.onclick = () => {
+  store.dispatch(toggleSwitch());
+};
+btnIncrease.onclick = () => {
+  store.dispatch(increase(1)); // 1씩 증가
+};
+btnDecrease.onclick = () => {
+  store.dispatch(decrease());
+};
