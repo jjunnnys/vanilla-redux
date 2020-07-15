@@ -932,8 +932,26 @@ var reducer = function reducer() {
       return state;
   }
 };
+/* 스토어 만들기 */
+
 
 var store = (0, _redux.createStore)(reducer);
+/* render 함수 만들기 */
+// 상태가 업데이트도리 때마다 호출, 리액트의 render 함수와는 다르게 이미 html을 사용하여 만들어진 UI의 속성을 상태에 따라 변경
+
+var render = function render() {
+  var state = store.getState(); // 현재 상태를 불러옴
+  // 토글 처리
+
+  if (state.toggle) {
+    divToggle.classList.add('active');
+  } else {
+    divToggle.classList.remove('active');
+  } // 카운터 처리
+
+
+  counter.innerText = state.counter;
+};
 },{"redux":"node_modules/redux/es/redux.js"}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
