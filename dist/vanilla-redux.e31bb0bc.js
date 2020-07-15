@@ -952,6 +952,14 @@ var render = function render() {
 
   counter.innerText = state.counter;
 };
+
+render();
+/* 구독하기 */
+// 스토어의 상태가 바뀔 때마다 render 함수가 호출되도록 설정
+// subscribe 함수의 파라미터로는 함수 형태의 값을 전달해 준다. -> 전달된 함수는 추후 액션이 발생하여 상태가 업데이트될 때마다 호출
+// !! 리액트 프로젝트에서는 직접 사용하지 않음, 컴포넌트에서 리덕스 상태를 조회하는 과정에서 react-redux라는 라이브러리가 대신 해준다.
+
+store.subscribe(render);
 },{"redux":"node_modules/redux/es/redux.js"}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
