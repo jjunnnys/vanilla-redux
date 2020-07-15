@@ -146,6 +146,13 @@ var decrease = function decrease() {
     type: DECREASE
   };
 };
+/* 초기 값 설정 */
+
+
+var initialState = {
+  toggle: false,
+  counter: 0
+};
 },{}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

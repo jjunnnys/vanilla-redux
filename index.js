@@ -14,3 +14,10 @@ const DECREASE = 'DECREASE';
 const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
 const increase = (difference) => ({ type: INCREASE });
 const decrease = () => ({ type: DECREASE });
+
+/* 초기 값 설정 */
+
+const initialState = {
+  toggle: false,
+  counter: 0,
+};
