@@ -118,7 +118,34 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
-console.log('hello parcel');
+var divToggle = document.querySelector('.toggle');
+var counter = document.querySelector('h1');
+var btnIncrease = document.querySelector('#increase');
+var btnDecrease = document.querySelector('#decrease');
+/* 액션 타입과 액션 생성 함수 정의 */
+// 액션 이름
+
+var TOGGLE_SWITCH = 'TOGGLE_SWITCH';
+var INCREASE = 'INCREASE';
+var DECREASE = 'DECREASE'; // 액션 생성함수 정의
+
+var toggleSwitch = function toggleSwitch() {
+  return {
+    type: TOGGLE_SWITCH
+  };
+};
+
+var increase = function increase(difference) {
+  return {
+    type: INCREASE
+  };
+};
+
+var decrease = function decrease() {
+  return {
+    type: DECREASE
+  };
+};
 },{}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
